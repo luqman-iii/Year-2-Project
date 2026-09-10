@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSearch</title>
+
+    <link rel="stylesheet" href="MedSearch.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <img src="../design/Logo.svg" class="logo-img" alt="logo">
+
+        <div class="nav-links">
+            <a class="nav-btn" href="homepage.html">Home</a>
+            <a class="nav-btn" href="MedSearch.html">Medsearch</a>
+            <a class="nav-emergency" href="emergency_request.html?v=2">Emergency</a>
+            <a class="nav-btn" href="profilepage.html">Profile</a>
+            <a class="nav-btn" href="SignIn.html">Log out</a>
+        </div>
+    </div>
+
+    <!-- PAGE TITLE -->
+    <div class="container">
+        <h1>MedSearch</h1>
+        <p class="subtitle">Locate and find any medicine in your area</p>
+
+        <section class="request-updates hidden" id="request-updates" aria-labelledby="request-updates-title">
+            <div class="updates-header">
+                <div>
+                    <h2 id="request-updates-title">Medication Request Updates</h2>
+                    <p class="updates-subtitle">Pharmacy responses to your requests will appear here.</p>
+                </div>
+                <p class="updates-status" id="request-updates-status" aria-live="polite"></p>
+            </div>
+            <div class="updates-list" id="request-updates-list"></div>
+        </section>
+
+        <!-- SEARCH CARD -->
+        <div class="card">
+
+            <div class="row">
+                <div class="input-box">
+                    <input type="text" id="medicine-input" placeholder="Search for your Medicine">
+                </div>
+
+                <div class="input-box">
+                    <select id="radius-input">
+                        <option selected disabled>Radius covered (Km)</option>
+                        <option>1 Km</option>
+                        <option>5 Km</option>
+                        <option>10 Km</option>
+                        <option>15 Km</option>
+                        <option>20 Km</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-box">
+                    <input type="text" id="city-input" placeholder="Location">
+                </div>
+
+                <div class="input-box">
+                    <button class="search-btn" id="search-button" type="button">Search</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="info-banner" id="search-message" aria-live="polite">
+            Search by medicine name and optional city. Radius is currently visual only.
+        </div>
+
+        <div class="results-grid" id="search-results"></div>
+    </div>
+
+    <div class="modal-backdrop hidden" id="request-modal" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>Request Medication</h2>
+                <button class="close-btn" id="close-request-modal" type="button" aria-label="Close">x</button>
+            </div>
+
+            <form id="request-form" class="request-form">
+                <p class="selected-medication" id="selected-medication"></p>
+
+                <label>
+                    Full name
+                    <input type="text" id="requester-name" required>
+                </label>
+
+                <label>
+                    Phone
+                    <input type="text" id="requester-phone">
+                </label>
+
+                <label>
+                    Email
+                    <input type="email" id="requester-email">
+                </label>
+
+                <label>
+                    Notes
+                    <textarea id="request-notes" rows="4" placeholder="Add any notes for the pharmacy"></textarea>
+                </label>
+
+                <div class="modal-actions">
+                    <button class="secondary-btn" id="cancel-request" type="button">Cancel</button>
+                    <button class="search-btn" type="submit">Send Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="authGuard.js"></script>
+    <script src="navDriver.js?v=7"></script>
+    <script src="MedSearch.js"></script>
+</body>
+</html>

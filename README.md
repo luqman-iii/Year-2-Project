@@ -1,1 +1,3 @@
-# Year-2-Project
+{
+    "java.configuration.updateBuildConfiguration": "interactive"
+}

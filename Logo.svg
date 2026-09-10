@@ -1,0 +1,9 @@
+package com.startup1.startup1_backend.repository;
+
+import com.startup1.startup1_backend.entity.DriverProfile;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DriverProfileRepository extends JpaRepository<DriverProfile, Long> {
+    DriverProfile findByUser_Id(Long userId);
+    void deleteByUser_Id(Long userId);
+}

@@ -1,0 +1,7 @@
+package com.startup1.startup1_backend.repository;
+
+import com.startup1.startup1_backend.entity.Pharmacy;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PharmacyRepository extends JpaRepository<Pharmacy, Long> {
+}

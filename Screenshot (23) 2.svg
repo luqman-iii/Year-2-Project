@@ -1,0 +1,11 @@
+package com.startup1.startup1_backend.repository;
+
+import com.startup1.startup1_backend.entity.EmergencyRequest;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmergencyRequestRepository extends JpaRepository<EmergencyRequest, Long> {
+    List<EmergencyRequest> findByStatusIgnoreCase(String status);
+    List<EmergencyRequest> findByDriver_Id(Long driverId);
+    List<EmergencyRequest> findByPatient_Id(Long patientId);
+}

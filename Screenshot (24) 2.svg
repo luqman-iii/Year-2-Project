@@ -1,0 +1,15 @@
+package com.startup1.startup1_backend.repository;
+
+import com.startup1.startup1_backend.entity.IncomingPatient;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface IncomingPatientRepository extends JpaRepository<IncomingPatient, Long> {
+    List<IncomingPatient> findByStatus(String status);
+
+    List<IncomingPatient> findByPatient_Id(Long patientId);
+    List<IncomingPatient> findByPatient_IdOrderByCreatedAtDesc(Long patientId);
+    IncomingPatient findByEmergencyRequestId(Long emergencyRequestId);
+    void deleteByPatient_Id(Long patientId);
+}
